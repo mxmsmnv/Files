@@ -1,0 +1,272 @@
+/* Files module settings: native ProcessWire controls with a focused overview. */
+#ModuleEditForm .FilesConfigOverview,
+#ModuleEditForm .FilesConfigSection,
+#ModuleEditForm .FilesConfigServer {
+	--files-config-gap: 1rem;
+	box-sizing: border-box;
+}
+
+#ModuleEditForm .FilesConfigOverview > .InputfieldContent {
+	padding: 1.35rem;
+}
+
+#ModuleEditForm .FilesConfigIntro {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 2rem;
+	margin-bottom: 1.25rem;
+}
+
+#ModuleEditForm .FilesConfigIntro h2 {
+	margin: .15rem 0 .4rem;
+	color: var(--pw-text-color);
+	font-size: 1.35rem;
+	line-height: 1.25;
+}
+
+#ModuleEditForm .FilesConfigIntro p:not(.FilesConfigEyebrow) {
+	max-width: 68rem;
+	margin: 0;
+	color: var(--pw-muted-color);
+	line-height: 1.55;
+}
+
+#ModuleEditForm .FilesConfigEyebrow {
+	margin: 0;
+	color: var(--pw-link-color);
+	font-size: .72rem;
+	font-weight: 700;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+
+#ModuleEditForm .FilesConfigLibraryButton {
+	display: inline-flex;
+	min-height: 2.5rem;
+	flex: 0 0 auto;
+	align-items: center;
+	gap: .55rem;
+	padding: .5rem .9rem;
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-button-background, var(--pw-link-color));
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+#ModuleEditForm .FilesConfigLibraryButton:hover,
+#ModuleEditForm .FilesConfigLibraryButton:focus-visible {
+	filter: brightness(.94);
+	color: #fff;
+	text-decoration: none;
+}
+
+#ModuleEditForm .FilesConfigStatusGrid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: var(--files-config-gap);
+	margin-bottom: 1.25rem;
+}
+
+#ModuleEditForm .FilesConfigStatus {
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	gap: .75rem;
+	padding: .9rem 1rem;
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+}
+
+#ModuleEditForm .FilesConfigStatus__icon {
+	display: grid;
+	width: 2rem;
+	height: 2rem;
+	flex: 0 0 auto;
+	place-items: center;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--pw-link-color) 12%, transparent);
+	color: var(--pw-link-color);
+}
+
+#ModuleEditForm .FilesConfigStatus[data-state="ready"] .FilesConfigStatus__icon {
+	background: color-mix(in srgb, #2e8540 13%, transparent);
+	color: #2e8540;
+}
+
+#ModuleEditForm .FilesConfigStatus[data-state="warning"] .FilesConfigStatus__icon {
+	background: color-mix(in srgb, #c0392b 12%, transparent);
+	color: #c0392b;
+}
+
+#ModuleEditForm .FilesConfigStatus small,
+#ModuleEditForm .FilesConfigStatus strong {
+	display: block;
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#ModuleEditForm .FilesConfigStatus small {
+	margin-bottom: .15rem;
+	color: var(--pw-muted-color);
+	font-size: .7rem;
+	font-weight: 700;
+	letter-spacing: .05em;
+	text-transform: uppercase;
+}
+
+#ModuleEditForm .FilesConfigStatus strong {
+	color: var(--pw-text-color);
+	font-size: .95rem;
+	font-weight: 600;
+}
+
+#ModuleEditForm .FilesConfigNav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5rem;
+}
+
+#ModuleEditForm .FilesConfigNav a {
+	display: inline-flex;
+	min-height: 2.25rem;
+	align-items: center;
+	gap: .45rem;
+	padding: .4rem .75rem;
+	border: 1px solid var(--pw-border-color);
+	border-radius: 999px;
+	background: var(--pw-blocks-background);
+	color: var(--pw-text-color);
+	font-size: .85rem;
+	font-weight: 500;
+	text-decoration: none;
+}
+
+#ModuleEditForm .FilesConfigNav a:hover,
+#ModuleEditForm .FilesConfigNav a:focus-visible {
+	border-color: var(--pw-link-color);
+	color: var(--pw-link-color);
+	text-decoration: none;
+}
+
+#ModuleEditForm .FilesConfigSection,
+#ModuleEditForm .FilesConfigServer {
+	scroll-margin-top: 5rem;
+}
+
+#ModuleEditForm .FilesConfigSection:target,
+#ModuleEditForm .FilesConfigServer:target {
+	outline: 2px solid color-mix(in srgb, var(--pw-link-color) 45%, transparent);
+	outline-offset: 2px;
+}
+
+#ModuleEditForm .FilesConfigSection > .InputfieldHeader,
+#ModuleEditForm .FilesConfigServer > .InputfieldHeader {
+	font-weight: 600;
+}
+
+#ModuleEditForm .FilesConfigSection > .InputfieldContent > .description,
+#ModuleEditForm .FilesConfigServer > .InputfieldContent > .description {
+	max-width: 76rem;
+	line-height: 1.5;
+}
+
+#ModuleEditForm .FilesConfigSection .notes,
+#ModuleEditForm .FilesConfigServer .notes {
+	line-height: 1.5;
+}
+
+#ModuleEditForm .FilesServerInfo {
+	color: var(--pw-text-color, var(--color-text-primary, #222));
+}
+
+#ModuleEditForm .FilesServerIntro {
+	margin: 0 0 14px;
+	color: var(--pw-muted-color, var(--color-text-secondary, #777));
+	line-height: 1.5;
+}
+
+#ModuleEditForm .FilesServerCards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+	gap: 12px;
+	margin-bottom: 18px;
+}
+
+#ModuleEditForm .FilesServerCard {
+	display: grid;
+	min-width: 0;
+	padding: 15px 17px;
+	border: 1px solid var(--pw-border-color, #ddd);
+	border-radius: var(--pw-input-radius, 6px);
+	background: var(--pw-blocks-background, #fff);
+}
+
+#ModuleEditForm .FilesServerCard.is-good { border-left: 3px solid var(--pw-alert-success, #27ae60); }
+#ModuleEditForm .FilesServerCard.is-warn { border-left: 3px solid var(--color-warning, #e67e22); }
+#ModuleEditForm .FilesServerCard.is-bad { border-left: 3px solid var(--color-danger, #c0392b); }
+
+#ModuleEditForm .FilesServerCard strong {
+	font-size: 1.25rem;
+	line-height: 1.2;
+	overflow-wrap: anywhere;
+}
+
+#ModuleEditForm .FilesServerCard span {
+	margin-top: 4px;
+	color: var(--pw-muted-color, #777);
+	font-size: .75rem;
+}
+
+#ModuleEditForm .FilesServerCard small {
+	margin-top: 5px;
+	color: var(--pw-muted-color, #888);
+	font-size: .7rem;
+	overflow-wrap: anywhere;
+}
+
+#ModuleEditForm .FilesServerGrid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(250px, .55fr);
+	gap: 16px;
+}
+
+#ModuleEditForm .FilesServerBox {
+	padding: 15px;
+	border: 1px solid var(--pw-border-color, #ddd);
+	border-radius: var(--pw-input-radius, 6px);
+	background: var(--pw-blocks-background, #fff);
+}
+
+#ModuleEditForm .FilesServerBox h3 { margin: 0 0 12px; font-size: .95rem; }
+#ModuleEditForm .FilesServerTable { width: 100%; border-collapse: collapse; }
+#ModuleEditForm .FilesServerTable td { padding: 7px 8px; border-top: 1px solid var(--pw-border-color, #eee); font-size: .75rem; }
+#ModuleEditForm .FilesServerTable td:first-child { width: 48%; color: var(--pw-muted-color, #777); }
+#ModuleEditForm .FilesPermissionInfo .FilesServerTable { margin-bottom: 1rem; }
+#ModuleEditForm .FilesPermissionInfo .FilesServerTable th { padding: 7px 8px; color: var(--pw-muted-color, #777); font-size: .72rem; text-align: left; text-transform: uppercase; }
+#ModuleEditForm .FilesPermissionInfo code { color: var(--pw-link-color); font-size: .75rem; }
+#ModuleEditForm .FilesServerPills { display: flex; flex-wrap: wrap; gap: 7px; }
+#ModuleEditForm .FilesServerPill { padding: 4px 10px; border: 1px solid var(--pw-border-color, #ddd); border-radius: 999px; font-size: .75rem; }
+#ModuleEditForm .FilesServerPill.is-good { border-color: #a5d6a7; background: #e8f5e9; color: #227a34; }
+#ModuleEditForm .FilesServerPill.is-bad { border-color: #ef9a9a; background: #fdecea; color: #a52a22; }
+#ModuleEditForm .FilesServerPill.is-neutral { color: var(--pw-muted-color, #777); }
+#ModuleEditForm .FilesServerPath { margin-top: 14px; color: var(--pw-muted-color, #777); font-size: .7rem; }
+
+@media (max-width: 1000px) {
+	#ModuleEditForm .FilesConfigStatusGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+	#ModuleEditForm .FilesConfigOverview > .InputfieldContent { padding: 1rem; }
+	#ModuleEditForm .FilesConfigIntro { display: block; }
+	#ModuleEditForm .FilesConfigLibraryButton { margin-top: 1rem; }
+	#ModuleEditForm .FilesConfigStatusGrid { grid-template-columns: 1fr; gap: .75rem; }
+	#ModuleEditForm .FilesConfigNav { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .35rem; scrollbar-width: thin; }
+	#ModuleEditForm .FilesConfigNav a { flex: 0 0 auto; }
+	#ModuleEditForm .FilesServerGrid { grid-template-columns: 1fr; }
+	#ModuleEditForm .FilesServerCards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

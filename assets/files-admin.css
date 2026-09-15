@@ -1,0 +1,832 @@
+/* Files workspace: Tickets styling with Seafile-inspired library interactions. */
+.ProcessFiles .FilesAdmin {
+	--files-space-sm: .75rem;
+	--files-space-md: 1rem;
+	--files-space-lg: 1.5rem;
+	--files-space-xl: 2rem;
+	--files-success: #2e8540;
+	color: var(--pw-text-color);
+}
+
+.ProcessFiles .FilesAdmin,
+.ProcessFiles .FilesAdmin * { box-sizing: border-box; }
+.ProcessFiles .FilesAdmin > * { min-width: 0; }
+.ProcessFiles .FilesAdmin h2,
+.ProcessFiles .FilesAdmin strong,
+.ProcessFiles .FilesAdmin .uk-button,
+.ProcessFiles .FilesAdmin .uk-form-label { font-weight: 500; }
+
+.ProcessFiles .FilesNavigation {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--files-space-md);
+	margin-bottom: var(--files-space-xl);
+	padding-bottom: var(--files-space-sm);
+	border-bottom: 1px solid color-mix(in srgb, var(--pw-border-color) 72%, transparent);
+}
+.ProcessFiles .FilesNavigation nav { min-width: 0; }
+.ProcessFiles .FilesNavigation .uk-subnav { margin-bottom: 0; }
+.ProcessFiles .FilesNavigation .uk-subnav > * > a {
+	display: inline-flex;
+	align-items: center;
+	gap: .5rem;
+	min-height: 2.5rem;
+	border-radius: var(--pw-input-radius);
+}
+.ProcessFiles .FilesSettings {
+	display: inline-flex;
+	min-height: 2.5rem;
+	flex: 0 0 auto;
+	align-items: center;
+	gap: .5rem;
+	padding: .45rem .8rem;
+	border: 1px solid transparent;
+	border-radius: var(--pw-input-radius);
+	color: var(--pw-muted-color);
+	text-decoration: none;
+}
+.ProcessFiles .FilesSettings:hover,
+.ProcessFiles .FilesSettings:focus-visible {
+	border-color: var(--pw-border-color);
+	background: color-mix(in srgb, var(--pw-border-color) 22%, transparent);
+	color: var(--pw-text-color);
+	text-decoration: none;
+}
+
+.ProcessFiles .FilesIntro {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: var(--files-space-lg);
+	margin-bottom: var(--files-space-lg);
+}
+.ProcessFiles .FilesIntro h2 {
+	margin: .2rem 0 0;
+	color: var(--pw-text-color);
+	font-size: clamp(1.55rem, 2vw, 2rem);
+	line-height: 1.15;
+}
+.ProcessFiles .FilesIntro p:last-child {
+	max-width: 48rem;
+	margin: .55rem 0 0;
+	color: var(--pw-muted-color);
+	line-height: 1.55;
+}
+.ProcessFiles .FilesEyebrow {
+	margin: 0;
+	color: var(--pw-primary-color, #e83561);
+	font-size: .72rem;
+	font-weight: 700;
+	letter-spacing: .075em;
+	text-transform: uppercase;
+}
+.ProcessFiles .FilesActionButton {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .55rem;
+}
+
+.ProcessFiles .FilesMetricGrid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: var(--files-space-md);
+	margin-bottom: var(--files-space-lg);
+}
+.ProcessFiles .FilesMetric {
+	display: flex;
+	align-items: center;
+	gap: var(--files-space-md);
+	min-width: 0;
+	padding: 1rem 1.15rem;
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+}
+.ProcessFiles .FilesMetric > span {
+	display: grid;
+	flex: 0 0 2.35rem;
+	width: 2.35rem;
+	height: 2.35rem;
+	place-items: center;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 11%, transparent);
+	color: var(--pw-primary-color, #e83561);
+	font-size: 1.1rem;
+}
+.ProcessFiles .FilesMetric div { display: grid; min-width: 0; }
+.ProcessFiles .FilesMetric small,
+.ProcessFiles .FilesMetric em { color: var(--pw-muted-color); font-size: .78rem; font-style: normal; }
+.ProcessFiles .FilesMetric strong { color: var(--pw-text-color); font-size: 1.25rem; line-height: 1.3; }
+
+.ProcessFiles .FilesFilters {
+	display: grid;
+	grid-template-columns: minmax(12rem, 2fr) minmax(10rem, 1fr) auto auto;
+	gap: var(--files-space-sm);
+	margin-bottom: var(--files-space-md);
+	padding: var(--files-space-md);
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+}
+.ProcessFiles .FilesSearch,
+.ProcessFiles .FilesTypeFilter { position: relative; min-width: 0; }
+.ProcessFiles .FilesSearch > i {
+	position: absolute;
+	z-index: 1;
+	top: 50%;
+	left: .85rem;
+	color: var(--pw-muted-color);
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+.ProcessFiles .FilesSearch .uk-input { padding-left: 2.5rem; }
+.ProcessFiles .FilesFilterSubmit,
+.ProcessFiles .FilesFilterReset {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: .45rem;
+}
+.ProcessFiles .FilesSrOnly {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+.ProcessFiles .FilesAdmin .uk-input,
+.ProcessFiles .FilesAdmin .uk-select,
+.ProcessFiles .FilesAdmin .uk-textarea {
+	background: var(--pw-inputs-background);
+	color: var(--pw-text-color);
+}
+.ProcessFiles .FilesFieldNote {
+	margin: .4rem 0 0;
+	color: var(--pw-muted-color);
+	font-size: .78rem;
+	line-height: 1.45;
+}
+
+.ProcessFiles .FilesUploadLayout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.65fr) minmax(17rem, .65fr);
+	gap: var(--files-space-md);
+	align-items: start;
+}
+
+.ProcessFiles .FilesUploadPanel,
+.ProcessFiles .FilesUploadInfo,
+.ProcessFiles .FilesUploadRules,
+.ProcessFiles .FilesUploadPrivacy {
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+}
+
+.ProcessFiles .FilesUploadPanel { padding: clamp(1.2rem, 2.5vw, 2rem); }
+
+.ProcessFiles .FilesUploadPanel > header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-bottom: 1.4rem;
+}
+
+.ProcessFiles .FilesUploadPanel > header h2 {
+	margin: .2rem 0 .45rem;
+	font-size: 1.35rem;
+}
+
+.ProcessFiles .FilesUploadPanel > header p:last-child {
+	max-width: 44rem;
+	margin: 0;
+	color: var(--pw-muted-color);
+	line-height: 1.5;
+}
+
+.ProcessFiles .FilesUploadSecure {
+	display: inline-flex;
+	align-items: center;
+	gap: .4rem;
+	padding: .35rem .6rem;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--files-success) 12%, transparent);
+	color: var(--files-success);
+	font-size: .75rem;
+	font-weight: 600;
+}
+
+.ProcessFiles .FilesDropzone {
+	position: relative;
+	display: flex;
+	min-height: 15rem;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: .85rem;
+	padding: 2rem;
+	border: 2px dashed color-mix(in srgb, var(--pw-primary-color, #e83561) 38%, var(--pw-border-color));
+	border-radius: calc(var(--pw-input-radius) * 1.25);
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 3%, var(--pw-blocks-background));
+	text-align: center;
+	cursor: pointer;
+	transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+
+.ProcessFiles .FilesDropzone:hover,
+.ProcessFiles .FilesDropzone:focus-within,
+.ProcessFiles .FilesDropzone.is-dragging {
+	border-color: var(--pw-primary-color, #e83561);
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 7%, var(--pw-blocks-background));
+}
+
+.ProcessFiles .FilesDropzone.is-dragging { transform: scale(1.005); }
+
+.ProcessFiles .FilesDropzone > input {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.ProcessFiles .FilesDropzoneIcon {
+	display: grid;
+	width: 4.5rem;
+	height: 4.5rem;
+	place-items: center;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 11%, transparent);
+	color: var(--pw-primary-color, #e83561);
+	font-size: 2rem;
+}
+
+.ProcessFiles .FilesDropzoneCopy { display: grid; gap: .2rem; }
+.ProcessFiles .FilesDropzoneCopy strong { font-size: 1.1rem; }
+.ProcessFiles .FilesDropzoneCopy small { color: var(--pw-muted-color); }
+.ProcessFiles .FilesBrowseButton { position: relative; pointer-events: none; }
+
+.ProcessFiles .FilesSelectedFile {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+	margin-top: 1rem;
+	padding: .85rem 1rem;
+	border: 1px solid color-mix(in srgb, var(--files-success) 42%, var(--pw-border-color));
+	border-radius: var(--pw-input-radius);
+	background: color-mix(in srgb, var(--files-success) 7%, var(--pw-blocks-background));
+}
+
+.ProcessFiles .FilesSelectedFile[hidden] { display: none; }
+.ProcessFiles .FilesSelectedFile > span { display: grid; width: 2.25rem; height: 2.25rem; flex: 0 0 auto; place-items: center; border-radius: 50%; background: color-mix(in srgb, var(--files-success) 14%, transparent); color: var(--files-success); }
+.ProcessFiles .FilesSelectedFile > div { display: grid; min-width: 0; flex: 1; }
+.ProcessFiles .FilesSelectedFile strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ProcessFiles .FilesSelectedFile small { color: var(--pw-muted-color); }
+.ProcessFiles .FilesSelectedFile button { display: grid; width: 2rem; height: 2rem; flex: 0 0 auto; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--pw-muted-color); cursor: pointer; }
+.ProcessFiles .FilesSelectedFile button:hover { background: color-mix(in srgb, #c83b32 10%, transparent); color: #c83b32; }
+.ProcessFiles .FilesUploadProgress {
+	display: grid;
+	gap: .55rem;
+	margin-top: 1rem;
+	padding: .9rem 1rem;
+	border: 1px solid color-mix(in srgb, var(--pw-primary-color, #e83561) 28%, var(--pw-border-color));
+	border-radius: var(--pw-input-radius);
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 5%, var(--pw-blocks-background));
+}
+.ProcessFiles .FilesUploadProgress[hidden],
+.ProcessFiles .FilesUploadError[hidden] { display: none; }
+.ProcessFiles .FilesUploadProgress > div { display: flex; justify-content: space-between; gap: 1rem; font-size: .78rem; }
+.ProcessFiles .FilesUploadProgress > div span,
+.ProcessFiles .FilesUploadProgress > small { color: var(--pw-muted-color); }
+.ProcessFiles .FilesUploadProgress progress { width: 100%; height: .55rem; overflow: hidden; border: 0; border-radius: 999px; accent-color: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesUploadProgress progress::-webkit-progress-bar { border-radius: 999px; background: color-mix(in srgb, var(--pw-border-color) 55%, transparent); }
+.ProcessFiles .FilesUploadProgress progress::-webkit-progress-value { border-radius: 999px; background: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesUploadError { margin-top: 1rem; padding: .75rem .85rem; border: 1px solid color-mix(in srgb, #c83b32 42%, var(--pw-border-color)); border-radius: var(--pw-input-radius); background: color-mix(in srgb, #c83b32 8%, var(--pw-blocks-background)); color: color-mix(in srgb, #c83b32 78%, var(--pw-text-color)); font-size: .8rem; }
+.ProcessFiles #files-upload-submit:disabled,
+.ProcessFiles #files-remove-selection:disabled { cursor: wait; opacity: .7; }
+
+.ProcessFiles .FilesUploadFooter {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: .55rem;
+	margin-top: 1.25rem;
+}
+
+.ProcessFiles .FilesUploadFooter .uk-button-primary { display: inline-flex; align-items: center; gap: .5rem; }
+.ProcessFiles .FilesUploadSidebar { display: grid; gap: var(--files-space-md); }
+.ProcessFiles .FilesUploadInfo { display: flex; align-items: flex-start; gap: .8rem; padding: 1rem; }
+.ProcessFiles .FilesUploadInfoIcon { display: grid; width: 2.4rem; height: 2.4rem; flex: 0 0 auto; place-items: center; border-radius: 50%; background: color-mix(in srgb, var(--pw-primary-color, #e83561) 10%, transparent); color: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesUploadInfo div { display: grid; min-width: 0; }
+.ProcessFiles .FilesUploadInfo small { margin-bottom: .1rem; color: var(--pw-muted-color); font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+.ProcessFiles .FilesUploadInfo strong { overflow-wrap: anywhere; }
+.ProcessFiles .FilesUploadInfo p { margin: .25rem 0 0; color: var(--pw-muted-color); font-size: .75rem; line-height: 1.4; }
+.ProcessFiles .FilesUploadRules { padding: 1rem; }
+.ProcessFiles .FilesUploadRules h3 { display: flex; align-items: center; gap: .5rem; margin: 0 0 .8rem; font-size: .9rem; }
+.ProcessFiles .FilesUploadPills { display: flex; flex-wrap: wrap; gap: .35rem; }
+.ProcessFiles .FilesUploadPills span { padding: .22rem .48rem; border: 1px solid var(--pw-border-color); border-radius: 999px; color: var(--pw-muted-color); font-size: .68rem; font-weight: 600; }
+.ProcessFiles .FilesUploadPills .FilesUploadMore { border-color: color-mix(in srgb, var(--pw-primary-color, #e83561) 35%, var(--pw-border-color)); color: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesUploadRules > p { margin: .7rem 0 0; color: var(--pw-muted-color); font-size: .72rem; }
+.ProcessFiles .FilesUploadPrivacy { display: flex; gap: .75rem; padding: 1rem; border-color: color-mix(in srgb, var(--files-success) 35%, var(--pw-border-color)); background: color-mix(in srgb, var(--files-success) 6%, var(--pw-blocks-background)); }
+.ProcessFiles .FilesUploadPrivacy > i { margin-top: .15rem; color: var(--files-success); }
+.ProcessFiles .FilesUploadPrivacy p { margin: .25rem 0 0; color: var(--pw-muted-color); font-size: .76rem; line-height: 1.45; }
+
+.ProcessFiles .FilesTable,
+.ProcessFiles .FilesPanel,
+.ProcessFiles .FilesShareOnce {
+	margin-bottom: var(--files-space-md);
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+}
+.ProcessFiles .FilesTable > header,
+.ProcessFiles .FilesPanel { padding: var(--files-space-lg); }
+.ProcessFiles .FilesTable > header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	border-bottom: 1px solid var(--pw-border-color);
+}
+.ProcessFiles .FilesTable header h2,
+.ProcessFiles .FilesPanel header h2,
+.ProcessFiles .FilesShareOnce h2 { margin: .2rem 0 0; font-size: 1.15rem; }
+.ProcessFiles .FilesTable table { margin: 0; }
+.ProcessFiles .FilesTable th { color: var(--pw-muted-color); font-size: .74rem; letter-spacing: .045em; text-transform: uppercase; }
+.ProcessFiles .FilesTable td { vertical-align: middle; }
+.ProcessFiles .FilesTableHint {
+	display: inline-flex;
+	align-items: center;
+	gap: .4rem;
+	color: var(--pw-muted-color);
+	font-size: .75rem;
+}
+.ProcessFiles .FilesTableHint i { color: var(--files-success); }
+.ProcessFiles .FilesTableTools { display: flex; align-items: center; gap: .75rem; }
+.ProcessFiles .FilesViewToggle {
+	display: inline-flex;
+	align-items: center;
+	padding: .2rem;
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: color-mix(in srgb, var(--pw-border-color) 18%, var(--pw-blocks-background));
+}
+.ProcessFiles .FilesViewToggle a {
+	display: grid;
+	width: 2rem;
+	height: 2rem;
+	place-items: center;
+	border-radius: calc(var(--pw-input-radius) * .7);
+	color: var(--pw-muted-color);
+	text-decoration: none;
+}
+.ProcessFiles .FilesViewToggle a:hover,
+.ProcessFiles .FilesViewToggle a:focus-visible { color: var(--pw-primary-color, #e83561); text-decoration: none; }
+.ProcessFiles .FilesViewToggle a.is-active {
+	background: var(--pw-blocks-background);
+	color: var(--pw-primary-color, #e83561);
+	box-shadow: 0 1px 3px rgb(0 0 0 / 10%);
+}
+.ProcessFiles .FilesActionsColumn { width: 1%; text-align: right; }
+.ProcessFiles .FilesMuted { color: var(--pw-muted-color); }
+.ProcessFiles .FilesItemRow time { color: var(--pw-muted-color); font-size: .85rem; white-space: nowrap; }
+
+.ProcessFiles .FilesGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+	gap: 1rem;
+	padding: 1rem;
+}
+.ProcessFiles .FilesGridItem {
+	display: flex;
+	min-width: 0;
+	min-height: 12rem;
+	flex-direction: column;
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+	transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.ProcessFiles .FilesGridItem:hover {
+	border-color: color-mix(in srgb, var(--pw-primary-color, #e83561) 45%, var(--pw-border-color));
+	box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / 7%);
+	transform: translateY(-1px);
+}
+.ProcessFiles .FilesGridItemMain {
+	display: flex;
+	min-width: 0;
+	flex: 1;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	gap: .75rem;
+	padding: 1.35rem 1rem .8rem;
+	color: var(--pw-text-color);
+	text-align: center;
+	text-decoration: none;
+}
+.ProcessFiles .FilesGridItemMain:hover { color: var(--pw-primary-color, #e83561); text-decoration: none; }
+.ProcessFiles .FilesGridIcon {
+	display: grid;
+	width: 3.75rem;
+	height: 3.75rem;
+	place-items: center;
+	border-radius: 1rem;
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 10%, transparent);
+	color: var(--pw-primary-color, #e83561);
+	font-size: 1.55rem;
+}
+.ProcessFiles .FilesGridItemMain > span:last-child { display: grid; min-width: 0; max-width: 100%; gap: .2rem; }
+.ProcessFiles .FilesGridItemMain strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ProcessFiles .FilesGridItemMain small { color: var(--pw-muted-color); font-size: .7rem; }
+.ProcessFiles .FilesGridMeta { padding: 0 1rem .8rem; color: var(--pw-muted-color); font-size: .7rem; text-align: center; }
+.ProcessFiles .FilesGridMeta time { display: inline-flex; align-items: center; gap: .35rem; }
+.ProcessFiles .FilesGridItem footer { padding: .55rem; border-top: 1px solid var(--pw-border-color); }
+.ProcessFiles .FilesGridItem .FilesRowActions { justify-content: center; }
+
+.ProcessFiles .FilesItemName {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+	color: var(--pw-text-color);
+	text-decoration: none;
+}
+.ProcessFiles .FilesItemName:hover { color: var(--pw-primary-color, #e83561); text-decoration: none; }
+.ProcessFiles .FilesItemName > span {
+	display: grid;
+	width: 2.4rem;
+	height: 2.4rem;
+	place-items: center;
+	border-radius: calc(var(--pw-input-radius) * .8);
+	background: color-mix(in srgb, var(--pw-border-color) 32%, transparent);
+	color: var(--pw-primary-color, #e83561);
+	font-size: 1rem;
+}
+.ProcessFiles .FilesItemName div { display: grid; }
+.ProcessFiles .FilesItemName small { max-width: 30rem; overflow: hidden; color: var(--pw-muted-color); font-size: .7rem; text-overflow: ellipsis; white-space: nowrap; }
+.ProcessFiles .FilesOpen {
+	display: grid;
+	width: 2.2rem;
+	height: 2.2rem;
+	place-items: center;
+	border: 1px solid var(--pw-border-color);
+	border-radius: 50%;
+	color: var(--pw-muted-color);
+	text-decoration: none;
+}
+.ProcessFiles .FilesOpen:hover { border-color: var(--pw-primary-color, #e83561); color: var(--pw-primary-color, #e83561); text-decoration: none; }
+
+.ProcessFiles .FilesBadge {
+	display: inline-flex;
+	align-items: center;
+	min-width: 1.7rem;
+	justify-content: center;
+	padding: .28rem .5rem;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--pw-border-color) 38%, transparent);
+	color: var(--pw-muted-color);
+	font-size: .72rem;
+	font-weight: 600;
+}
+.ProcessFiles .FilesBadge[data-state="active"] {
+	background: color-mix(in srgb, var(--files-success) 16%, var(--pw-blocks-background));
+	color: color-mix(in srgb, var(--files-success) 70%, var(--pw-text-color));
+}
+.ProcessFiles .FilesBadge[data-state="warning"] {
+	background: color-mix(in srgb, #d9822b 15%, var(--pw-blocks-background));
+	color: color-mix(in srgb, #b45f10 78%, var(--pw-text-color));
+}
+
+.ProcessFiles .FilesEmpty {
+	display: grid;
+	place-items: center;
+	padding: 4rem 1.5rem;
+	border-radius: 0 0 var(--pw-input-radius) var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+	text-align: center;
+}
+.ProcessFiles .FilesEmptyIcon {
+	display: grid;
+	width: 4rem;
+	height: 4rem;
+	place-items: center;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 10%, transparent);
+	color: var(--pw-primary-color, #e83561);
+	font-size: 1.65rem;
+}
+.ProcessFiles .FilesEmpty h2 { margin: 1rem 0 .25rem; }
+.ProcessFiles .FilesEmpty p { margin: 0 0 1rem; color: var(--pw-muted-color); }
+.ProcessFiles .FilesEmpty--compact { padding: 1.5rem; border: 0; }
+.ProcessFiles .FilesEmpty--compact p { margin: 0; }
+
+.ProcessFiles .FilesDetailGrid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.15fr) minmax(22rem, .85fr);
+	gap: var(--files-space-md);
+	align-items: start;
+}
+.ProcessFiles .FilesPreview {
+	margin-bottom: var(--files-space-md);
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+	overflow: hidden;
+}
+.ProcessFiles .FilesPreview > header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1rem 1.2rem;
+	border-bottom: 1px solid var(--pw-border-color);
+}
+.ProcessFiles .FilesPreview > header h2 { margin: .18rem 0 .25rem; font-size: 1.15rem; overflow-wrap: anywhere; }
+.ProcessFiles .FilesPreview > header p:last-child { margin: 0; color: var(--pw-muted-color); font-size: .78rem; line-height: 1.45; }
+.ProcessFiles .FilesPreviewActions { display: flex; flex: 0 0 auto; align-items: center; gap: .55rem; }
+.ProcessFiles .FilesPreviewActions .uk-button { display: inline-flex; align-items: center; gap: .4rem; }
+.ProcessFiles .FilesPreviewStage {
+	display: grid;
+	min-height: 18rem;
+	place-items: center;
+	padding: 1rem;
+	background: color-mix(in srgb, var(--pw-text-color) 5%, var(--pw-blocks-background));
+}
+.ProcessFiles .FilesPreview--image .FilesPreviewStage { min-height: 22rem; }
+.ProcessFiles .FilesPreviewStage img,
+.ProcessFiles .FilesPreviewStage video { display: block; max-width: 100%; max-height: 34rem; border-radius: calc(var(--pw-input-radius) * .7); object-fit: contain; }
+.ProcessFiles .FilesPreviewStage audio { width: min(38rem, 100%); }
+.ProcessFiles .FilesPreviewStage iframe { width: 100%; height: 25rem; border: 0; border-radius: calc(var(--pw-input-radius) * .7); background: #fff; }
+.ProcessFiles .FilesPreviewStage pre { width: 100%; min-height: 20rem; max-height: 32rem; margin: 0; padding: 1rem; overflow: auto; border: 1px solid var(--pw-border-color); border-radius: calc(var(--pw-input-radius) * .7); background: var(--pw-inputs-background); color: var(--pw-text-color); font: .82rem/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.ProcessFiles .FilesPreviewTruncated { width: 100%; margin: .65rem 0 0; color: var(--pw-muted-color); font-size: .75rem; }
+.ProcessFiles .FilesPreviewTruncated i { margin-right: .35rem; color: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesPreview--pdf .FilesPreviewStage iframe { height: 38rem; }
+.ProcessFiles .FilesPreviewUnavailable { display: grid; max-width: 34rem; place-items: center; padding: 2rem; text-align: center; }
+.ProcessFiles .FilesPreviewUnavailable > span { display: grid; width: 4rem; height: 4rem; place-items: center; border-radius: 50%; background: color-mix(in srgb, var(--pw-primary-color, #e83561) 10%, transparent); color: var(--pw-primary-color, #e83561); font-size: 1.5rem; }
+.ProcessFiles .FilesPreviewUnavailable h3 { margin: 1rem 0 .35rem; }
+.ProcessFiles .FilesPreviewUnavailable p { margin: 0 0 1rem; color: var(--pw-muted-color); }
+.ProcessFiles .FilesPreviewUnavailable > div { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.ProcessFiles .FilesOnlyOffice { width: 100%; height: 42rem; background: #fff; }
+.ProcessFiles .FilesOnlyOffice > iframe { width: 100% !important; height: 100% !important; border: 0; }
+.ProcessFiles .FilesOnlyOfficeLoading,
+.ProcessFiles .FilesOnlyOfficeError { display: flex; height: 100%; align-items: center; justify-content: center; gap: .65rem; padding: 2rem; color: #5f6872; text-align: center; }
+.ProcessFiles .FilesOnlyOfficeError { color: #a52a22; }
+.ProcessFiles .FilesPanelTitle {
+	display: flex;
+	align-items: center;
+	gap: .8rem;
+	margin-bottom: 1.15rem;
+}
+.ProcessFiles .FilesPanelTitle h2 { margin: .15rem 0 0; font-size: 1.15rem; }
+.ProcessFiles .FilesPanelIcon {
+	display: grid;
+	width: 2.6rem;
+	height: 2.6rem;
+	flex: 0 0 auto;
+	place-items: center;
+	border-radius: 50%;
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 11%, transparent);
+	color: var(--pw-primary-color, #e83561);
+}
+.ProcessFiles .FilesPanelTitle > div { min-width: 0; flex: 1; }
+.ProcessFiles .FilesTypeBadge {
+	padding: .3rem .55rem;
+	border: 1px solid var(--pw-border-color);
+	border-radius: 999px;
+	color: var(--pw-muted-color);
+	font-size: .72rem;
+	font-weight: 700;
+}
+.ProcessFiles .FilesMetadata { margin: 0; }
+.ProcessFiles .FilesMetadata > div {
+	display: grid;
+	grid-template-columns: minmax(8rem, .38fr) minmax(0, 1fr);
+	gap: 1rem;
+	padding: .9rem 0;
+	border-top: 1px solid var(--pw-border-color);
+}
+.ProcessFiles .FilesMetadata dt { display: flex; align-items: center; gap: .5rem; color: var(--pw-muted-color); }
+.ProcessFiles .FilesMetadata dt i { width: 1rem; color: color-mix(in srgb, var(--pw-primary-color, #e83561) 75%, var(--pw-muted-color)); text-align: center; }
+.ProcessFiles .FilesMetadata dd { display: grid; gap: .15rem; margin: 0; overflow-wrap: anywhere; }
+.ProcessFiles .FilesMetadata dd strong { font-size: .92rem; }
+.ProcessFiles .FilesMetadata dd small { color: var(--pw-muted-color); font-size: .72rem; }
+.ProcessFiles .FilesMetadataChecksum dd { min-width: 0; }
+.ProcessFiles .FilesMetadataChecksum code { display: block; padding: .55rem .65rem; overflow: hidden; border: 1px solid var(--pw-border-color); border-radius: var(--pw-input-radius); background: var(--pw-inputs-background); color: var(--pw-muted-color); font-size: .72rem; text-overflow: ellipsis; white-space: nowrap; }
+.ProcessFiles .FilesFormGrid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--files-space-sm); margin-top: 1rem; }
+.ProcessFiles .FilesFormGrid small { color: var(--pw-muted-color); }
+.ProcessFiles .FilesAccessPanel { scroll-margin-top: 5rem; }
+.ProcessFiles .FilesShareScope { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: 1.1rem; padding: .75rem .85rem; border: 1px solid color-mix(in srgb, var(--pw-primary-color, #e83561) 28%, var(--pw-border-color)); border-radius: var(--pw-input-radius); background: color-mix(in srgb, var(--pw-primary-color, #e83561) 5%, var(--pw-blocks-background)); }
+.ProcessFiles .FilesShareScope i { margin-top: .15rem; color: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesShareScope p { margin: 0; color: var(--pw-muted-color); font-size: .8rem; line-height: 1.45; }
+.ProcessFiles .FilesFormField { margin-top: 1rem; }
+.ProcessFiles .FilesFormField:first-child { margin-top: 0; }
+.ProcessFiles .FilesFormField > small { display: block; margin-top: .35rem; color: var(--pw-muted-color); font-size: .72rem; line-height: 1.4; }
+.ProcessFiles .FilesOptional { margin-left: .4rem; color: var(--pw-muted-color); font-size: .7rem; font-weight: 400; }
+.ProcessFiles .FilesInputSuffix { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+.ProcessFiles .FilesInputSuffix input { border-radius: var(--pw-input-radius) 0 0 var(--pw-input-radius); }
+.ProcessFiles .FilesInputSuffix span { display: flex; align-items: center; padding: 0 .7rem; border: 1px solid var(--pw-border-color); border-left: 0; border-radius: 0 var(--pw-input-radius) var(--pw-input-radius) 0; background: color-mix(in srgb, var(--pw-border-color) 20%, var(--pw-blocks-background)); color: var(--pw-muted-color); font-size: .75rem; }
+.ProcessFiles .FilesCreateShareButton { display: inline-flex; align-items: center; gap: .5rem; width: 100%; justify-content: center; margin-top: 1.2rem; }
+.ProcessFiles .FilesSharesTable { margin-top: var(--files-space-md); }
+.ProcessFiles .FilesShareCount { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .6rem; border-radius: 999px; background: color-mix(in srgb, var(--files-success) 10%, transparent); color: var(--files-success); font-size: .75rem; }
+.ProcessFiles .FilesShareCount strong { font-weight: 700; }
+.ProcessFiles .FilesRecipient { display: flex; align-items: center; gap: .6rem; min-width: 13rem; }
+.ProcessFiles .FilesRecipient > i { display: grid; width: 2rem; height: 2rem; flex: 0 0 auto; place-items: center; border-radius: 50%; background: color-mix(in srgb, var(--pw-primary-color, #e83561) 9%, transparent); color: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesRecipient > span { display: grid; min-width: 0; }
+.ProcessFiles .FilesRecipient strong { max-width: 18rem; overflow: hidden; font-size: .82rem; text-overflow: ellipsis; white-space: nowrap; }
+.ProcessFiles .FilesRecipient small { color: var(--pw-muted-color); font-size: .68rem; }
+.ProcessFiles .FilesProtection { display: inline-flex; align-items: center; gap: .35rem; color: var(--pw-muted-color); font-size: .78rem; white-space: nowrap; }
+.ProcessFiles .FilesShareHistory time { color: var(--pw-muted-color); font-size: .78rem; white-space: nowrap; }
+.ProcessFiles .FilesRevokeButton { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .55rem; border: 0; border-radius: var(--pw-input-radius); background: transparent; color: var(--pw-muted-color); font-size: .75rem; cursor: pointer; }
+.ProcessFiles .FilesRevokeButton:hover,
+.ProcessFiles .FilesRevokeButton:focus-visible { background: color-mix(in srgb, #c83b32 10%, transparent); color: #c83b32; }
+
+.ProcessFiles .FilesShareOnce { padding: var(--files-space-lg); border-color: color-mix(in srgb, var(--files-success) 50%, var(--pw-border-color)); }
+.ProcessFiles .FilesShareOnce > p:not(.uk-text-meta) { color: var(--pw-muted-color); }
+.ProcessFiles .FilesShareOnce > div { display: grid; grid-template-columns: 1fr auto; gap: .5rem; }
+
+.ProcessFiles .FilesDanger {
+	margin-top: var(--files-space-lg);
+	padding: var(--files-space-md);
+	border: 1px solid color-mix(in srgb, #c83b32 50%, var(--pw-border-color));
+	border-radius: var(--pw-input-radius);
+	background: var(--pw-blocks-background);
+}
+.ProcessFiles .FilesDanger summary { display: flex; align-items: center; gap: .5rem; color: #c83b32; cursor: pointer; font-weight: 600; }
+.ProcessFiles .FilesDanger summary::before { content: "\f1f8"; font-family: FontAwesome; }
+.ProcessFiles .FilesDanger p { color: var(--pw-muted-color); }
+
+.ProcessFiles .FilesBreadcrumbs {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: .55rem;
+	margin: -.5rem 0 1.4rem;
+	padding: .65rem .8rem;
+	border: 1px solid var(--pw-border-color);
+	border-radius: var(--pw-input-radius);
+	background: color-mix(in srgb, var(--pw-blocks-background) 78%, transparent);
+	color: var(--pw-muted-color);
+	font-size: .82rem;
+}
+.ProcessFiles .FilesBreadcrumbs a { color: var(--pw-primary-color, #e83561); text-decoration: none; }
+.ProcessFiles .FilesBreadcrumbs span { color: var(--pw-text-color); font-weight: 500; }
+.ProcessFiles .FilesBreadcrumbIcon { color: var(--pw-muted-color); }
+.ProcessFiles .FilesBreadcrumbSeparator { color: color-mix(in srgb, var(--pw-muted-color) 55%, transparent); }
+.ProcessFiles .FilesActions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.ProcessFiles .FilesRowActions { display: flex; align-items: center; justify-content: flex-end; gap: .25rem; }
+.ProcessFiles .FilesRowActions a {
+	display: inline-flex;
+	min-height: 2rem;
+	align-items: center;
+	justify-content: center;
+	gap: .35rem;
+	padding: .3rem .55rem;
+	border-radius: var(--pw-input-radius);
+	color: var(--pw-muted-color);
+	font-size: .78rem;
+	text-decoration: none;
+}
+.ProcessFiles .FilesRowActions a:hover,
+.ProcessFiles .FilesRowActions a:focus-visible { background: color-mix(in srgb, var(--pw-border-color) 40%, transparent); color: var(--pw-primary-color, #e83561); }
+.ProcessFiles .FilesRowActions .FilesRowPrimary {
+	margin-left: .2rem;
+	background: color-mix(in srgb, var(--pw-primary-color, #e83561) 9%, transparent);
+	color: var(--pw-primary-color, #e83561);
+}
+.ProcessFiles .FilesPanel > p.uk-text-meta { line-height: 1.5; }
+.ProcessFiles .FilesPanel select + small,
+.ProcessFiles .FilesFormGrid small { display: block; margin-top: .3rem; color: var(--pw-muted-color); }
+.ProcessFiles .uk-modal-dialog { border-radius: var(--pw-input-radius); background: var(--pw-blocks-background); color: var(--pw-text-color); }
+
+.ProcessFiles .FilesShareDialog .uk-modal-dialog {
+	width: min(62rem, calc(100% - 2rem));
+	max-height: calc(100vh - 2rem);
+	padding: 0;
+	overflow: hidden;
+	border: 1px solid var(--pw-border-color);
+}
+.ProcessFiles .FilesShareHeader { padding: 1.15rem 1.5rem; border-bottom: 1px solid var(--pw-border-color); }
+.ProcessFiles .FilesShareHeader h2 { margin: 0; font-size: 1.2rem; font-weight: 400; }
+.ProcessFiles .FilesShareHeader strong { color: var(--pw-primary-color, #e83561); font-weight: 600; }
+.ProcessFiles .FilesShareLayout { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); min-height: 31rem; max-height: calc(100vh - 6rem); }
+.ProcessFiles .FilesShareNav { margin: 0; padding: 1rem .6rem; border-right: 1px solid var(--pw-border-color); list-style: none; }
+.ProcessFiles .FilesShareNav li { margin: 0; }
+.ProcessFiles .FilesShareNav a { display: block; padding: .65rem .8rem; border-radius: var(--pw-input-radius); color: var(--pw-text-color); text-decoration: none; }
+.ProcessFiles .FilesShareNav .uk-active a { background: var(--pw-primary-color, #e83561); color: #fff; }
+.ProcessFiles .FilesSharePanels { margin: 0; padding: 1.25rem 1.5rem; overflow: auto; list-style: none; }
+.ProcessFiles .FilesShareToolbar { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin: .75rem 0 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--pw-border-color); }
+.ProcessFiles .FilesShareToolbar details { position: relative; }
+.ProcessFiles .FilesShareToolbar summary { list-style: none; cursor: pointer; }
+.ProcessFiles .FilesShareToolbar summary::-webkit-details-marker { display: none; }
+.ProcessFiles .FilesShareGenerate { position: absolute; z-index: 2; right: 0; width: min(31rem, 82vw); margin-top: .5rem; padding: 1.25rem; border: 1px solid var(--pw-border-color); border-radius: var(--pw-input-radius); background: var(--pw-blocks-background); box-shadow: 0 .7rem 2rem rgb(0 0 0 / 18%); }
+.ProcessFiles .FilesShareGenerate > .uk-form-label:not(:first-of-type) { margin-top: .8rem; }
+.ProcessFiles .FilesShareCreated { display: flex; align-items: flex-start; gap: .75rem; margin-bottom: 1rem; padding: .85rem 1rem; border: 1px solid color-mix(in srgb, var(--files-success, #2e8540) 42%, var(--pw-border-color)); border-radius: var(--pw-input-radius); background: color-mix(in srgb, var(--files-success, #2e8540) 10%, var(--pw-blocks-background)); }
+.ProcessFiles .FilesShareCreated > i { color: var(--files-success, #2e8540); font-size: 1.15rem; }
+.ProcessFiles .FilesShareCreated p { margin: .15rem 0 0; color: var(--pw-muted-color); }
+.ProcessFiles .FilesCopyField { margin-bottom: 1rem; }
+.ProcessFiles .FilesCopyField label { display: block; margin-bottom: .35rem; color: var(--pw-muted-color); }
+.ProcessFiles .FilesCopyField > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
+.ProcessFiles .FilesCopyField input { min-width: 0; border-radius: var(--pw-input-radius) 0 0 var(--pw-input-radius); }
+.ProcessFiles .FilesCopyField button { border-radius: 0 var(--pw-input-radius) var(--pw-input-radius) 0; }
+.ProcessFiles .FilesCopyField button span { margin-left: .4rem; }
+.ProcessFiles .FilesCopyField--compact { min-width: 19rem; margin: 0; }
+.ProcessFiles .FilesCopyField--compact input { height: 2.35rem; font-size: .82rem; }
+.ProcessFiles .FilesCopyField--compact button { min-height: 2.35rem; padding: 0 .75rem; }
+.ProcessFiles .FilesCopyField--compact button span { display: none; }
+.ProcessFiles .FilesDirectLabel { display: block; margin: .45rem 0 .25rem; color: var(--pw-muted-color); font-size: .7rem; text-transform: uppercase; }
+.ProcessFiles .FilesShareList { margin: 0; }
+.ProcessFiles .FilesShareList th { color: var(--pw-muted-color); font-size: .72rem; text-transform: uppercase; }
+.ProcessFiles .FilesIconButton { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--pw-muted-color); cursor: pointer; }
+.ProcessFiles .FilesIconButton:hover { background: color-mix(in srgb, #c83b32 10%, transparent); color: #c83b32; }
+.ProcessFiles .FilesLegacyLink { display: grid; min-width: 16rem; }
+.ProcessFiles .FilesLegacyLink small { margin-top: .2rem; color: var(--pw-muted-color); }
+.ProcessFiles .FilesShareEmpty { padding: 3rem 1rem !important; color: var(--pw-muted-color); text-align: center; }
+.ProcessFiles .FilesInternalLink { max-width: 42rem; }
+.ProcessFiles .FilesInternalLink h3 { margin-top: 0; }
+.ProcessFiles .FilesInternalLink > p { color: var(--pw-muted-color); }
+
+@media (max-width: 1100px) {
+	.ProcessFiles .FilesMetricGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.ProcessFiles .FilesDetailGrid { grid-template-columns: 1fr; }
+	.ProcessFiles .FilesUploadLayout { grid-template-columns: minmax(0, 1.35fr) minmax(15rem, .65fr); }
+}
+@media (max-width: 700px) {
+	.ProcessFiles .FilesNavigation { align-items: center; }
+	.ProcessFiles .FilesNavigation .uk-subnav { flex-wrap: nowrap; overflow-x: auto; }
+	.ProcessFiles .FilesNavigation .uk-subnav > * { flex: 0 0 auto; }
+	.ProcessFiles .FilesNavigation .uk-subnav > * > a { gap: 0; padding: .4rem .6rem; font-size: .76rem; }
+	.ProcessFiles .FilesNavigation .uk-subnav > * > a i { display: none; }
+	.ProcessFiles .FilesSettings span { display: none; }
+	.ProcessFiles .FilesIntro { align-items: flex-start; flex-direction: column; }
+	.ProcessFiles .FilesActions { width: 100%; }
+	.ProcessFiles .FilesActionButton { flex: 1; padding-right: .7rem; padding-left: .7rem; font-size: .82rem; white-space: nowrap; }
+	.ProcessFiles .FilesMetricGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+	.ProcessFiles .FilesMetric { padding: .85rem; }
+	.ProcessFiles .FilesMetric > span { flex-basis: 2rem; width: 2rem; height: 2rem; }
+	.ProcessFiles .FilesMetric strong { font-size: 1.05rem; }
+	.ProcessFiles .FilesTableHint { display: none; }
+	.ProcessFiles .FilesGrid { grid-template-columns: 1fr; }
+	.ProcessFiles .FilesFilters { grid-template-columns: 1fr; }
+	.ProcessFiles .FilesFilterSubmit,
+	.ProcessFiles .FilesFilterReset { width: 100%; }
+	.ProcessFiles .FilesUploadLayout { grid-template-columns: 1fr; }
+	.ProcessFiles .FilesUploadPanel > header { display: block; }
+	.ProcessFiles .FilesUploadSecure { margin-top: .8rem; }
+	.ProcessFiles .FilesDropzone { min-height: 13rem; padding: 1.5rem 1rem; }
+	.ProcessFiles .FilesUploadFooter .uk-button { flex: 1; }
+	.ProcessFiles .FilesUploadSidebar { grid-template-columns: 1fr; }
+	.ProcessFiles .FilesFormGrid { grid-template-columns: 1fr; }
+	.ProcessFiles .FilesPreview > header { flex-direction: column; }
+	.ProcessFiles .FilesPreviewActions { width: 100%; justify-content: space-between; }
+	.ProcessFiles .FilesPreviewStage { min-height: 14rem; padding: .65rem; }
+	.ProcessFiles .FilesPreviewStage iframe { height: 20rem; }
+	.ProcessFiles .FilesPreview--pdf .FilesPreviewStage iframe { height: 30rem; }
+	.ProcessFiles .FilesOnlyOffice { height: 34rem; }
+	.ProcessFiles .FilesShareOnce > div { grid-template-columns: 1fr; }
+	.ProcessFiles .FilesTableScroll { overflow: visible; }
+	.ProcessFiles .FilesTableScroll table,
+	.ProcessFiles .FilesTableScroll tbody,
+	.ProcessFiles .FilesTableScroll tr,
+	.ProcessFiles .FilesTableScroll td { display: block; width: 100%; }
+	.ProcessFiles .FilesTableScroll thead { display: none; }
+	.ProcessFiles .FilesTableScroll tr { padding: 1rem; border-bottom: 1px solid var(--pw-border-color); }
+	.ProcessFiles .FilesTableScroll tr:last-child { border-bottom: 0; }
+	.ProcessFiles .FilesTableScroll td {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		min-width: 0;
+		padding: .45rem 0;
+		border: 0;
+		text-align: right;
+	}
+	.ProcessFiles .FilesTableScroll td::before {
+		content: attr(data-label);
+		flex: 0 0 5rem;
+		color: var(--pw-muted-color);
+		font-size: .68rem;
+		font-weight: 600;
+		letter-spacing: .04em;
+		text-align: left;
+		text-transform: uppercase;
+	}
+	.ProcessFiles .FilesTableScroll td:first-child { padding-top: 0; }
+	.ProcessFiles .FilesTableScroll td:first-child::before { display: none; }
+	.ProcessFiles .FilesItemName { flex: 1; }
+	.ProcessFiles .FilesItemName div { text-align: left; }
+	.ProcessFiles .FilesRowActions { flex-wrap: wrap; }
+	.ProcessFiles .FilesShareLayout { grid-template-columns: 1fr; min-height: 0; }
+	.ProcessFiles .FilesShareNav { display: flex; gap: .35rem; padding: .75rem; border-right: 0; border-bottom: 1px solid var(--pw-border-color); }
+	.ProcessFiles .FilesSharePanels { padding: 1rem; }
+	.ProcessFiles .FilesShareToolbar { align-items: stretch; flex-direction: column; }
+	.ProcessFiles .FilesShareGenerate { position: static; width: 100%; }
+}

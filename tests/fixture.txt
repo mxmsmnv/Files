@@ -1,0 +1,2 @@
+File Server integration fixture.
+This non-sensitive file verifies private upload, sharing, and download behavior.
