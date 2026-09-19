@@ -26,7 +26,7 @@ class Files extends WireData implements Module, ConfigurableModule {
 
 	public static function getModuleInfo(): array {
 		return [
-			'title' => 'Files', 'version' => self::VERSION,
+			'title' => 'Files', 'version' => 100,
 			'summary' => 'Store files in folders and share files or complete folder trees.',
 			'author' => 'Maxim Semenov', 'icon' => 'folder-open',
 			'autoload' => true, 'singular' => true,

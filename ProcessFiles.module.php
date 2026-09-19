@@ -12,7 +12,7 @@ class ProcessFiles extends Process {
 
 	public static function getModuleInfo(): array {
 		return [
-			'title'=>'Files', 'version'=>Files::VERSION,
+			'title'=>'Files', 'version'=>100,
 			'summary'=>'Browse private folders and manage file or folder shares.',
 			'author'=>'Maxim Semenov', 'icon'=>'folder-open',
 			'requires'=>['Files'], 'permission'=>Files::PERMISSION_USE,
