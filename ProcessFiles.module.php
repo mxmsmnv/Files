@@ -12,11 +12,14 @@ class ProcessFiles extends Process {
 
 	public static function getModuleInfo(): array {
 		return [
-			'title'=>'Files', 'version'=>100,
-			'summary'=>'Browse private folders and manage file or folder shares.',
-			'author'=>'Maxim Semenov', 'icon'=>'folder-open',
-			'requires'=>['Files'], 'permission'=>Files::PERMISSION_USE,
-			'page'=>['name'=>'files','parent'=>'setup','title'=>'Files'],
+			'title' => 'Files',
+			'summary' => 'Browse private folders and manage file or folder shares.',
+			'version' => 100,
+			'author' => 'Maxim Semenov',
+			'icon' => 'folder-open',
+			'requires' => ['Files'],
+			'permission' => Files::PERMISSION_USE,
+			'page' => ['name' => 'files', 'parent' => 'setup', 'title' => 'Files'],
 		];
 	}
 

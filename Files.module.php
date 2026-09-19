@@ -26,10 +26,13 @@ class Files extends WireData implements Module, ConfigurableModule {
 
 	public static function getModuleInfo(): array {
 		return [
-			'title' => 'Files', 'version' => 100,
+			'title' => 'Files',
 			'summary' => 'Store files in folders and share files or complete folder trees.',
-			'author' => 'Maxim Semenov', 'icon' => 'folder-open',
-			'autoload' => true, 'singular' => true,
+			'version' => 100,
+			'author' => 'Maxim Semenov',
+			'icon' => 'folder-open',
+			'autoload' => true,
+			'singular' => true,
 			'mcpProvider' => true,
 			'requires' => ['ProcessWire>=3.0.200', 'PHP>=8.1'],
 			'installs' => ['ProcessFiles'],
