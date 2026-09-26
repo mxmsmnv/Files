@@ -1,6 +1,6 @@
 # Files Public API
 
-This is the supported PHP and MCPServer contract for Files 1.0.0. Use it as the
+This is the supported PHP and MCPServer contract for Files 1.0.1. Use it as the
 canonical source for method names and arguments. Confirm installed module state
 and saved configuration in the target ProcessWire site before calling it.
 
@@ -277,7 +277,7 @@ $files->mcpProviderInfo(): array;
 $files->mcpTools(): array;
 ```
 
-Files reports provider name `files`, title `Files` and version `1.0.0`. Tool
+Files reports provider name `files`, title `Files` and version `1.0.1`. Tool
 execution remains disabled until `mcp_service_user_id` names an active,
 non-guest ProcessWire user. MCPServer owns transport, bearer clients, endpoint,
 gateway scopes, rate limits and auditing.
@@ -316,7 +316,7 @@ expired/revoked/exhausted shares, wrong passwords and unreachable ONLYOFFICE.
 
 ## Hooks And Internal APIs
 
-Files 1.0.0 does not declare a stable public hook/event API. Public methods
+Files 1.0.1 does not declare a stable public hook/event API. Public methods
 whose names begin with `handle` are ProcessWire route callbacks and are not
 integration methods. Private/protected methods, SQL tables, `ProcessFiles`
 render helpers, storage paths and MCP helper methods are internal and may

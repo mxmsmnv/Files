@@ -17,6 +17,7 @@ $checks = [
 	'private storage details are redacted' => !str_contains($provider, "'storage_name' =>") && str_contains($provider, "'private_paths_exposed' => false"),
 	'share listings redact URLs' => str_contains($provider, "'link_secrets_exposed' => false") && str_contains($provider, 'mcpSafeShare($share, true)'),
 	'share creation consumes a staged revision' => str_contains($provider, "'files_stage_share'") && str_contains($provider, 'TABLE_MCP_SHARE_PROPOSALS') && str_contains($provider, 'mcpItemRevision(') && str_contains($provider, "'const' => 'CREATE_FILES_SHARE'"),
+	'SQLite share publication uses its immediate transaction' => str_contains($provider, 'mcpSelectForUpdate()') && str_contains($provider, "dialect()->name() === 'sqlite'") && !str_contains($provider, 'actor_user_id=:actor FOR UPDATE'),
 	'shared downloads disclose quota mutation' => str_contains($provider, "'files_read_shared'") && str_contains($provider, "'download_counted' => true") && str_contains($provider, "false, false, false, false"),
 	'pagination is pushed into bounded SQL' => str_contains($provider, "ORDER BY s.id LIMIT '") && str_contains($provider, "ORDER BY i.id LIMIT '") && str_contains($provider, "ORDER BY i.id LIMIT ' . (\$limit + 1)"),
 	'search escapes SQL wildcard characters' => str_contains($provider, "ESCAPE '='") && str_contains($provider, 'mcpLikeLiteral('),

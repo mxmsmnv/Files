@@ -2,6 +2,16 @@
 
 All notable changes to Files are documented here.
 
+## [1.0.1] - 2026-09-26
+
+### Fixed
+
+- Kept staged-share publication transactional on SQLite by relying on
+  ProcessWire's immediate write transaction instead of unsupported
+  `SELECT ... FOR UPDATE` syntax.
+- Documented support for ProcessWire's MySQL/MariaDB, SQLite and PostgreSQL
+  database drivers instead of requiring PDO MySQL specifically.
+
 ## [1.0.0] - 2026-09-15
 
 ### Added

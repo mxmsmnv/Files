@@ -80,7 +80,8 @@ Requirements:
 
 - ProcessWire 3.0.200 or newer;
 - PHP 8.1 or newer;
-- Fileinfo, mbstring, PDO MySQL and Sodium PHP extensions;
+- Fileinfo, mbstring, the PDO driver for the configured MySQL/MariaDB, SQLite
+  or PostgreSQL database, and Sodium PHP extensions;
 - rewrite rules that pass unmatched public share routes to ProcessWire.
 
 Install the module:

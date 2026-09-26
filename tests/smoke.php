@@ -45,6 +45,7 @@ $checks = [
 	'ONLYOFFICE source links are short lived' => str_contains($service, 'time() + 3600') && str_contains($service, '$expires > time() + 3660') && str_contains($service, 'hash_equals($expected, $signature)'),
 	'share history is legible and guarded' => str_contains($process, 'FilesShareHistory') && str_contains($process, 'FilesShareCount') && str_contains($process, 'Revoke this sharing link?') && str_contains($css, '.FilesBadge[data-state="warning"]'),
 	'settings show server diagnostics' => str_contains($service, 'serverInformationMarkup(') && str_contains($service, 'Maximum file size') && str_contains($service, 'AJAX chunks up to') && str_contains($service, 'PHP extensions'),
+	'settings inspect the configured database driver' => str_contains($service, "'sqlite'=>'pdo_sqlite'") && str_contains($service, "'postgresql'=>'pdo_pgsql'") && str_contains($service, "default=>'pdo_mysql'"),
 	'settings are grouped and documented' => str_contains($service, 'FilesConfigOverview') && substr_count($service, '->description') >= 9 && substr_count($service, '->notes') >= 6,
 	'config CSS is scoped and responsive' => !preg_match('/^\s*(?:body|html|\.uk-|#(?!ModuleEditForm))/m', $configCss) && str_contains($configCss, '@media (max-width: 640px)'),
 ];

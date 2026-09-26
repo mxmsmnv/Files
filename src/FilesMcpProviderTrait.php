@@ -2,7 +2,7 @@
 
 /** Bounded MCPServer provider for the private Files domain. */
 trait FilesMcpProviderTrait {
-	private const MCP_VERSION = '1.0.0';
+	private const MCP_VERSION = '1.0.1';
 	private const MCP_CONTENT_CHUNK_BYTES = 524288;
 	private const MCP_UPLOAD_BYTES = 1048576;
 
@@ -273,7 +273,7 @@ trait FilesMcpProviderTrait {
 		if($confirmation !== 'CREATE_FILES_SHARE') throw new WireException('Explicit share confirmation is required.');
 		$user = $this->mcpActor(); $this->requireCapability(self::PERMISSION_SHARE, $user); $db = $this->wire('database'); $db->beginTransaction();
 		try {
-			$stmt = $db->prepare('SELECT * FROM `' . self::TABLE_MCP_SHARE_PROPOSALS . '` WHERE proposal_id=:id AND actor_user_id=:actor FOR UPDATE'); $stmt->execute([':id' => $proposal_id, ':actor' => (int)$user->id]); $proposal = $stmt->fetch(\PDO::FETCH_ASSOC);
+			$stmt = $db->prepare('SELECT * FROM `' . self::TABLE_MCP_SHARE_PROPOSALS . '` WHERE proposal_id=:id AND actor_user_id=:actor' . $this->mcpSelectForUpdate()); $stmt->execute([':id' => $proposal_id, ':actor' => (int)$user->id]); $proposal = $stmt->fetch(\PDO::FETCH_ASSOC);
 			if(!$proposal) throw new Wire404Exception('The staged share proposal was not found.');
 			if(!empty($proposal['published_share_id'])) { $shareId = (int)$proposal['published_share_id']; $db->commit(); return ['share' => $this->mcpShareResult($shareId, $user), 'idempotent_replay' => true]; }
 			if(strtotime((string)$proposal['expires_at']) <= time()) throw new WireException('The staged share proposal has expired.');
@@ -306,6 +306,10 @@ trait FilesMcpProviderTrait {
 			return null;
 		}
 		return $user;
+	}
+
+	private function mcpSelectForUpdate(): string {
+		return $this->wire('database')->dialect()->name() === 'sqlite' ? '' : ' FOR UPDATE';
 	}
 
 	/** @return array<string,mixed> */
