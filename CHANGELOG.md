@@ -2,6 +2,12 @@
 
 All notable changes to Files are documented here.
 
+## [1.0.3] - 2026-09-26
+
+### Fixed
+
+- Recognize ProcessWire's `pgsql` dialect name when reporting the required PostgreSQL PDO extension in server diagnostics.
+
 ## [1.0.2] - 2026-09-26
 
 ### Fixed

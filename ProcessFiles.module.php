@@ -14,7 +14,7 @@ class ProcessFiles extends Process {
 		return [
 			'title' => 'Files',
 			'summary' => 'Browse private folders and manage file or folder shares.',
-			'version' => 102,
+			'version' => 103,
 			'author' => 'Maxim Semenov',
 			'icon' => 'folder-open',
 			'requires' => ['Files'],
