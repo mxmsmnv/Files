@@ -2,6 +2,13 @@
 
 All notable changes to Files are documented here.
 
+## [1.0.2] - 2026-09-26
+
+### Fixed
+
+- Replaced boolean `SUM()` expressions in library statistics with portable
+  conditional aggregates for PostgreSQL.
+
 ## [1.0.1] - 2026-09-26
 
 ### Fixed

@@ -1,6 +1,6 @@
 # Files Public API
 
-This is the supported PHP and MCPServer contract for Files 1.0.1. Use it as the
+This is the supported PHP and MCPServer contract for Files 1.0.2. Use it as the
 canonical source for method names and arguments. Confirm installed module state
 and saved configuration in the target ProcessWire site before calling it.
 

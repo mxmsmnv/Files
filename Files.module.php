@@ -6,7 +6,7 @@ require_once __DIR__ . '/src/FilesMcpProviderTrait.php';
 class Files extends WireData implements Module, ConfigurableModule {
 	use FilesMcpProviderTrait;
 
-	public const VERSION = 100;
+	public const VERSION = 102;
 	public const TABLE_ITEMS = 'files_items';
 	public const TABLE_TREE = 'files_tree';
 	public const TABLE_SHARES = 'files_shares';
@@ -28,7 +28,7 @@ class Files extends WireData implements Module, ConfigurableModule {
 		return [
 			'title' => 'Files',
 			'summary' => 'Store files in folders and share files or complete folder trees.',
-			'version' => 101,
+			'version' => 102,
 			'author' => 'Maxim Semenov',
 			'icon' => 'folder-open',
 			'autoload' => true,
@@ -415,7 +415,7 @@ class Files extends WireData implements Module, ConfigurableModule {
 
 	public function stats(?User $actor = null): array {
 		$this->requireUse($actor); $user = $actor ?: $this->wire('user'); $where = $this->canManage($user) ? '1=1' : 'owner_user_id=' . (int)$user->id;
-		$row = $this->wire('database')->query('SELECT SUM(kind=\'file\') files,COALESCE(SUM(size_bytes),0) bytes,SUM(kind=\'folder\')-' . ($this->canManage($user) ? '1' : '0') . ' folders FROM `' . self::TABLE_ITEMS . '` WHERE ' . $where)->fetch(\PDO::FETCH_ASSOC);
+		$row = $this->wire('database')->query('SELECT SUM(CASE WHEN kind=\'file\' THEN 1 ELSE 0 END) files,COALESCE(SUM(size_bytes),0) bytes,SUM(CASE WHEN kind=\'folder\' THEN 1 ELSE 0 END)-' . ($this->canManage($user) ? '1' : '0') . ' folders FROM `' . self::TABLE_ITEMS . '` WHERE ' . $where)->fetch(\PDO::FETCH_ASSOC);
 		$shareSql = 'SELECT COUNT(*) FROM `' . self::TABLE_SHARES . '` s';
 		if(!$this->canManage($user)) $shareSql .= ' JOIN `' . self::TABLE_ITEMS . '` i ON i.id=s.item_id';
 		$shareSql .= ' WHERE ' . $this->activeShareSql('s') . (!$this->canManage($user) ? ' AND i.owner_user_id=' . (int)$user->id : '');
